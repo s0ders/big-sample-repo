@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   semantic-release-benchmark:
-    name: Release
+    name: Semantic Release Benchmark
     runs-on: ubuntu-24.04
     permissions:
       contents: write # to be able to publish a GitHub release
@@ -37,7 +37,7 @@ jobs:
         run: hyperfine --warmup 3 'npx semantic-release --dry-run'
 
   go-semantic-release-benchmark:
-    name: Release
+    name: Go Semantic Release Benchmark
     runs-on: ubuntu-24.04
     permissions:
       contents: write # to be able to publish a GitHub release
@@ -61,4 +61,4 @@ jobs:
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        run: hyperfine --warmup 3 './semantic-release --dry-run'
+        run: ./semantic-release --dry-run
