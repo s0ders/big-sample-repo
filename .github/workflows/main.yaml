@@ -34,4 +34,4 @@ jobs:
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        run: npx semantic-release --dry-run
+        run: hyperfine --warmup 3 'npx semantic-release --dry-run'
